@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.10">
-<title>Red Hat Process Automation Manager Workshop</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
-<style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Asciidoctor 2.0.10">
+    <title>Red Hat Process Automation Manager Workshop</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+    <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
 /* Uncomment @import statement to use as custom stylesheet */
 /*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
@@ -438,724 +438,724 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<div id="toc" class="toc2">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#_red_hat_process_automation_manager_workshop">Red Hat Process Automation Manager Workshop</a></li>
-<li><a href="#_problem_statement">1. Problem Statement</a></li>
-<li><a href="#_users_and_groups">2. Users and Groups</a></li>
-<li><a href="#_create_a_project">3. Create a Project</a></li>
-<li><a href="#_solution">4. Solution</a>
-<ul class="sectlevel2">
-<li><a href="#_the_domain_model">4.1. The Domain Model</a></li>
-<li><a href="#_creating_the_pre_qualification_decision">4.2. Creating the Pre-Qualification Decision</a></li>
-<li><a href="#_creating_the_group_assignment_decision">4.3. Creating the Group Assignment Decision</a></li>
-<li><a href="#_creating_the_customer_profile_lookup_service">4.4. Creating the Customer Profile Lookup Service</a></li>
-<li><a href="#_creating_the_loan_approval_workflow">4.5. Creating the Loan Approval Workflow</a></li>
-<li><a href="#_creating_the_user_forms">4.6. Creating the User Forms</a></li>
-<li><a href="#_process_management_and_tracking">4.7. Process Management and Tracking</a></li>
-<li><a href="#_task_inbox">4.8. Task Inbox</a></li>
-</ul>
-</li>
-</ul>
-</div>
+    <div id="toc" class="toc2">
+        <div id="toctitle">Table of Contents</div>
+        <ul class="sectlevel1">
+            <li><a href="#_red_hat_process_automation_manager_workshop">Red Hat Process Automation Manager Workshop</a></li>
+            <li><a href="#_problem_statement">1. Problem Statement</a></li>
+            <li><a href="#_users_and_groups">2. Users and Groups</a></li>
+            <li><a href="#_create_a_project">3. Create a Project</a></li>
+            <li><a href="#_solution">4. Solution</a>
+                <ul class="sectlevel2">
+                    <li><a href="#_the_domain_model">4.1. The Domain Model</a></li>
+                    <li><a href="#_creating_the_pre_qualification_decision">4.2. Creating the Pre-Qualification Decision</a></li>
+                    <li><a href="#_creating_the_group_assignment_decision">4.3. Creating the Group Assignment Decision</a></li>
+                    <li><a href="#_creating_the_customer_profile_lookup_service">4.4. Creating the Customer Profile Lookup Service</a></li>
+                    <li><a href="#_creating_the_loan_approval_workflow">4.5. Creating the Loan Approval Workflow</a></li>
+                    <li><a href="#_creating_the_user_forms">4.6. Creating the User Forms</a></li>
+                    <li><a href="#_process_management_and_tracking">4.7. Process Management and Tracking</a></li>
+                    <li><a href="#_task_inbox">4.8. Task Inbox</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
 </div>
 <div id="content">
-<div class="sect1">
-<h2 id="_red_hat_process_automation_manager_workshop">Red Hat Process Automation Manager Workshop</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This workshop is aimed at providing hands on experience on the authoring and management platform for RHPAM. In addition, this lab also provides an introduction to Red Hat Fuse. This lab will implement a Loan Approval workflow.</p>
-</div>
-<div class="ulist">
-<div class="title">Goals</div>
-<ul>
-<li>
-<p>Explore Users and Groups Management</p>
-</li>
-<li>
-<p>Create an integration microservice using Red Hat Fuse.</p>
-</li>
-<li>
-<p>Create a simple Loan Approval Workflow</p>
-</li>
-<li>
-<p>Explore Process Admin Operations (Dashboards, SLAs, Assignments, Ressignments)</p>
-</li>
-<li>
-<p>Explore Task Inbox (User Task Approval)</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_problem_statement">1. Problem Statement</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>In this lab we will create an Loan Approval process.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Customer initiates the Loan Approval request.</p>
-</li>
-<li>
-<p>Pre Qualification checks are applied to the loan request.</p>
-</li>
-<li>
-<p>If the pre-qualification was succesful, then a suitable loan agent group is identified, the loan request is then assigned to them for approval.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_users_and_groups">2. Users and Groups</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>In order to demonstrate the assignment and reassignment features, we will set up 3 sample groups and some users.
-First, login to Business Central using the credentials provided.On the top right you will see an option for the settings view.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/add_asset.jpg" alt="add asset">
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Now click on the option for <code>Users</code></p>
-</li>
-<li>
-<p>We will create 4 users. For creating a new user, click on the <code>New User</code> option.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-08-31-15-59-38-519.png" alt="image 2020 08 31 15 59 38 519">
-</div>
-</div>
-</li>
-<li>
-<p>Proceed with the wizard. Enter the username as <code>Mary</code>, then proceed on to add  role to user as below.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-08-31-16-00-57-889.png" alt="image 2020 08 31 16 00 57 889">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-08-31-16-04-01-536.png" alt="image 2020 08 31 16 04 01 536">
-</div>
-</div>
-</li>
-<li>
-<p>Now choose, the role as <code>user</code>.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-08-31-16-05-04-864.png" alt="image 2020 08 31 16 05 04 864">
-</div>
-</div>
-</li>
-<li>
-<p>Now click on the <code>Create</code> button.</p>
-</li>
-<li>
-<p>Finally set a password <code>redhatpam1!</code> for the user.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-07-26-15-468.png" alt="image 2020 09 01 07 26 15 468">
-</div>
-</div>
-</li>
-<li>
-<p>Let us now repeat the same process to create 3 more users.</p>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Username</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Password</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Robert</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">redhatpam1!</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Patricia</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">redhatpam1!</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">John</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">redhatpam1!</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>Finally you will see the following users.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-08-01-51-864.png" alt="image 2020 09 01 08 01 51 864">
-</div>
-</div>
-</li>
-<li>
-<p>Now let us create 3 groups. For this click on the groups tab as shown in the image.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-08-02-58-384.png" alt="image 2020 09 01 08 02 58 384">
-</div>
-</div>
-</li>
-<li>
-<p>Click on the <code>New Group</code> option. Provide a name for the group `seniorUserAgent.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-08-04-32-270.png" alt="image 2020 09 01 08 04 32 270">
-</div>
-</div>
-</li>
-<li>
-<p>Now you should see the list of users, show up. Choose the user <code>John</code> and click on <code>Add Selected User</code>.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-08-05-54-905.png" alt="image 2020 09 01 08 05 54 905">
-</div>
-</div>
-</li>
-<li>
-<p>Repeat the same process to create two more groups.</p>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Group Name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Users</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">nonResidentGroup</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Patricia</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">loanAgent</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mary, Robert</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>Finally you should see the following groups.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-08-09-15-230.png" alt="image 2020 09 01 08 09 15 230">
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_create_a_project">3. Create a Project</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>To define and deploy a business process, we first need to create a new project in which we can store the BPMN2 model, our domain model and the forms required for user interaction. To create a new project:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Navigate to {business_central}</p>
-</li>
-<li>
-<p>Login to the platform with the provided username and password.</p>
-</li>
-<li>
-<p>Click on <strong>Design</strong> to navigate to the Design perspective.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-02-11-51-02-580.png" alt="image 2020 09 02 11 51 02 580">
-</div>
-</div>
-</li>
-<li>
-<p>In the Design perspective, create a new project. If your space is empty, this can be done by clicking on the blue <strong>Add Project</strong> button in the center of the page. If you already have projects in your space, you can click on the blue <strong>Add Project</strong> icon at the top right of the page.</p>
-</li>
-<li>
-<p>Give the project the name <code>loan-approval</code>, and the description "Loan Approval Process".</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-02-11-51-29-783.png" alt="image 2020 09 02 11 51 29 783">
-</div>
-</div>
-<div class="paragraph">
-<p>With the project created, we can now start building our solution.</p>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_solution">4. Solution</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_the_domain_model">4.1. The Domain Model</h3>
-<div class="paragraph">
-<p>The business process will collect and carry data through the execution of the process. This data is stored in a data model or domain model.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>In your project, click on the <em>Add Asset</em> button in the middle of the screen.</p>
-</li>
-</ol>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-08-17-43-292.png" alt="image 2020 09 01 08 17 43 292">
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>In the drop-down menu in the upper-left corner, select <code>Model</code>. Click on the <em>Data Object</em> tile.</p>
-</li>
-<li>
-<p>Give the <em>Data Object</em> the name <code>LoanApplicant</code>. Leave the package set to default.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-08-17-43-292.png" alt="image 2020 09 01 08 17 43 292">
-</div>
-</div>
-</li>
-<li>
-<p>Add the following fields to the <code>LoanApplicant</code> data object by clicking on the <code>+ add field</code> button:</p>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-11-09-16-48-941.png" alt="image 2020 12 11 09 16 48 941">
-</div>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>We can now create the required decisions for our process.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_creating_the_pre_qualification_decision">4.2. Creating the Pre-Qualification Decision</h3>
-<div class="paragraph">
-<p>First let us create a simple Pre Qualification decision.</p>
-</div>
-<div class="paragraph">
-<p>We will use the <em>Guided Decision Table</em> asset.</p>
-</div>
-<div class="quoteblock">
-<blockquote>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Guided Decison are rules that you create in a UI-based table designer in Decision Central</p>
-</li>
-<li>
-<p>Are a wizard-led alternative to uploaded decision table spreadsheets</p>
-</li>
-<li>
-<p>Provide fields and options for acceptable input</p>
-</li>
-</ol>
-</div>
-</blockquote>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Now go back to the asset library and click on <em>Add Asset</em> button. Choose the Guided Decision Table option.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-11-09-18-54-558.png" alt="image 2020 12 11 09 18 54 558">
-</div>
-</div>
-<div class="paragraph">
-<p>Guided Decision tables provide wizard based approach to defining condition and action columns.</p>
-</div>
-<div class="paragraph">
-<p>On the Guided Decision Table editor click on the Columns Tab.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-09-28-55-803.png" alt="image 2020 09 01 09 28 55 803">
-</div>
-</div>
-</li>
-<li>
-<p>To Add a condition colum click on the <em>Insert Column</em> button. This will open up the wizard. Choose the <em>Add a Condition</em> option and click on <em>Next</em></p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-09-29-49-943.png" alt="image 2020 09 01 09 29 49 943">
-</div>
-</div>
-<div class="paragraph">
-<p>First we need to import the data objects which we will be using for the rule. For this click on the <em>Create a new Fact Pattern</em> button.</p>
-</div>
-<div class="paragraph">
-<p>Choose the <code>LoanApplicant</code> type and provide a binding variable. This is required so that we can start defining condition and action columns based on the <em>LoanApplicant</em> object.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-09-31-00-274.png" alt="image 2020 09 01 09 31 00 274">
-</div>
-</div>
-<div class="paragraph">
-<p>Next let us define the Calculation type, we will choose the <em>Literal Value</em> and proceed.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-09-31-33-748.png" alt="image 2020 09 01 09 31 33 748">
-</div>
-</div>
-<div class="paragraph">
-<p>We will choose the <code>age</code> field.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-09-32-17-242.png" alt="image 2020 09 01 09 32 17 242">
-</div>
-</div>
-<div class="paragraph">
-<p>Since we need to define the Min age check, we will choose the operation as <code>greater than</code> and proceed.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-09-32-52-538.png" alt="image 2020 09 01 09 32 52 538">
-</div>
-</div>
-<div class="paragraph">
-<p>Finally we will give the column a header name and save the column definition.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-09-33-31-846.png" alt="image 2020 09 01 09 33 31 846">
-</div>
-</div>
-</li>
-<li>
-<p>Next we will define the Max Age column, repeat the same steps as above but choose the operation type as <code>less than</code> instead. We will name this <code>Age &lt; Than</code></p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-09-34-22-468.png" alt="image 2020 09 01 09 34 22 468">
-</div>
-</div>
-</li>
-<li>
-<p>Next let us define the Credit Score.</p>
-<div class="paragraph">
-<p>For this click on <code>Insert Column</code>, choose the <code>loanApplicant</code> fact pattern, and choose the calculation type as <code>Literal value</code> column name as <code>creditScore</code></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-09-39-52-940.png" alt="image 2020 09 01 09 39 52 940">
-</div>
-</div>
-<div class="paragraph">
-<p>We will choose the operator as <code>greater than</code>, proceed on to provide a header name and save.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-09-41-07-073.png" alt="image 2020 09 01 09 41 07 073">
-</div>
-</div>
-</li>
-<li>
-<p>Next we will define the check for <code>loanAmount</code>. For this click on <code>Insert Column</code>, choose the <code>loanApplicant</code> fact pattern, and choose the calculation type as <code>Literal value</code> column name as <code>loanAmount</code>
-We will choose the operator as <code>less than</code>, proceed on to provide a header name and save.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-09-43-28-513.png" alt="image 2020 09 01 09 43 28 513">
-</div>
-</div>
-</li>
-<li>
-<p>Finally let us create a column for <code>residency</code>.
-For this click on <code>Insert Column</code>, choose the <code>loanApplicant</code> fact pattern, and choose the calculation type as <code>Literal value</code> column name as <code>residency</code>
-We will choose the operator as <code>equal to</code>, proceed on to provide a header name and save.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-09-45-19-901.png" alt="image 2020 09 01 09 45 19 901">
-</div>
-</div>
-</li>
-<li>
-<p>Now we will define the action column. For this click on <code>Insert Column</code>. Choose the option for <code>Set the value of field</code> and click next.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-09-47-12-378.png" alt="image 2020 09 01 09 47 12 378">
-</div>
-</div>
-<div class="paragraph">
-<p>Choose the fact pattern <code>loanApplicant</code> and proceed. Choose the <code>Field</code> as <code>loanPreQualification</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-09-48-38-660.png" alt="image 2020 09 01 09 48 38 660">
-</div>
-</div>
-<div class="paragraph">
-<p>Finally add a header for the column and save.</p>
-</div>
-</li>
-<li>
-<p>Now, we will add an Attribute column to the table. This will help us define the Rule flow group for this rule.
-Rule flow Group provides a mechanism for grouping and executing rules. We will use this grouping on our process to indicate which rule to execute.</p>
-<div class="paragraph">
-<p>For this click on the <code>Insert Column</code> button. Check the box for <code>Include advanced options</code> and choose <code>Add an Attribute column</code> option.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-10-00-30-396.png" alt="image 2020 09 01 10 00 30 396">
-</div>
-</div>
-<div class="paragraph">
-<p>Choose the <code>Ruleflow-Group</code> option.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-10-01-41-147.png" alt="image 2020 09 01 10 01 41 147">
-</div>
-</div>
-<div class="paragraph">
-<p>Now expand the <code>Attribute columns</code> section as shown below. Enter the <code>Default Value</code> as <code>loanPreQualification</code> and check the box to hide the column.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-10-03-44-587.png" alt="image 2020 09 01 10 03 44 587">
-</div>
-</div>
-</li>
-<li>
-<p>Now switch back to the <code>Model</code> Tab, you can see the following table setup.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-10-20-44-480.png" alt="image 2020 09 01 10 20 44 480">
-</div>
-</div>
-</li>
-<li>
-<p>Let us now fill up the table with values as below. For this choose the <code>Insert</code> button.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-10-21-11-802.png" alt="image 2020 09 01 10 21 11 802">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-11-30-24-106.png" alt="image 2020 09 01 11 30 24 106">
-</div>
-</div>
-<div class="paragraph">
-<p>If you need to remove any of the cell values which you might have wrongly entered, right click on the cell and click on <code>Delete Cell</code>. If you need delete the whole row, select the row and right click to <code>Delete row(s)</code></p>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_creating_the_group_assignment_decision">4.3. Creating the Group Assignment Decision</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Now, we will create another Decision table to dynamically determine which agent group to assign the loan approval request to. For this go back to the asset library and click on <em>Add Asset</em> button. Choose the Guided Decision Table option.</p>
-<div class="paragraph">
-<p>For this decision table, we will choose the <code>Hit Policy</code> as <code>First Hit</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-11-37-52-314.png" alt="image 2020 09 01 11 37 52 314">
-</div>
-</div>
-</li>
-<li>
-<p>Now let us define the columns. For this click on the <code>Columns</code> tab.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-11-41-58-073.png" alt="image 2020 09 01 11 41 58 073">
-</div>
-</div>
-</li>
-<li>
-<p>Click on the <code>Insert Column</code> button, choose the option for <code>Add a condition</code> and click next. As we did earlier we will need to define a Fact pattern. For this click on <code>Create a new Fact Pattern</code>.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-11-52-13-728.png" alt="image 2020 09 01 11 52 13 728">
-</div>
-</div>
-<div class="paragraph">
-<p>Create the fact pattern as above and proceed. Choose <code>Calculation type</code> as <code>Literal value</code>. Choose the <code>Field</code> as <code>age</code> and click on next. We will define the column as <code>greater than</code> as shown below.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-11-54-32-433.png" alt="image 2020 09 01 11 54 32 433">
-</div>
-</div>
-<div class="paragraph">
-<p>Provide a header name for the column and click on save</p>
-</div>
-</li>
-<li>
-<p>Next let us create the next condition column. For this, click
-on <code>Insert Column</code>, choose the fact pattern we created in the earlier step, choose the <code>Calculation type</code> as <code>Literal value</code>. Choose the <code>Field</code> as <code>residency</code>. For this we will define the operator as <code>equals to</code></p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-11-57-30-226.png" alt="image 2020 09 01 11 57 30 226">
-</div>
-</div>
-</li>
-<li>
-<p>Next let us define the <code>Action</code> column. For this click on <code>Insert Column</code> button, choose the option to <code>Set the value of a field</code>.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-13-40-26-597.png" alt="image 2020 09 01 13 40 26 597">
-</div>
-</div>
-<div class="paragraph">
-<p>Choose the Fact pattern which we created earlier, choose the <code>Field</code> as <code>loanGroupAssignment</code>. Provide a header name for the column and save changes.</p>
-</div>
-</li>
-<li>
-<p>Finally we will add an <code>Attribute</code> column for defining the Rule flow group. As we did with the previous decision table, click on <code>Insert Column</code>, choose the <code>Include advanced options</code> checkbox, and choose <code>Add an attribute column</code>.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-13-56-29-911.png" alt="image 2020 09 01 13 56 29 911">
-</div>
-</div>
-<div class="paragraph">
-<p>We will choose the Ruleflow-Group option.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-13-57-07-947.png" alt="image 2020 09 01 13 57 07 947">
-</div>
-</div>
-<div class="paragraph">
-<p>Expand the <code>Attribute Columns</code> and provide a default value for the <code>ruleflow-group</code> as below.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-13-58-31-076.png" alt="image 2020 09 01 13 58 31 076">
-</div>
-</div>
-<div class="paragraph">
-<p>The table should now look like this. Next we will click on the <code>Insert</code> button to fill up the table as below.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-13-42-52-175.png" alt="image 2020 09 01 13 42 52 175">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-13-46-13-210.png" alt="image 2020 09 01 13 46 13 210">
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_creating_the_customer_profile_lookup_service">4.4. Creating the Customer Profile Lookup Service</h3>
-<div class="paragraph">
-<p>Now let us create a simple Fuse service to lookup customer profile information. The service will lookup the Customer Class based on the Customer id.
-We will use <a href="https://developers.redhat.com/products/codeready-studio/download?extIdCarryOver=true&amp;sc_cid=7013a000002goGYAAY">Red Hat Developer Studio</a> for creating this service.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Launch the developer studio from the installed location.</p>
-</li>
-<li>
-<p>We will start with a base project for creating the service. For this we will import
-the project from git.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-22-13-35-933.png" alt="image 2020 12 13 22 13 35 933">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="Screenshot%20from%202020-12-13%2022-15-52.png" alt="Screenshot from 2020 12 13 22 15 52">
-</div>
-</div>
-<div class="paragraph">
-<p>We will clone URI from the location</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>https://github.com/snandakumar87/customer-profile-service</code></pre>
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="Screenshot%20from%202020-12-13%2022-17-26.png" alt="Screenshot from 2020 12 13 22 17 26">
-</div>
-</div>
-<div class="paragraph">
-<p>Follow along the wizard with the default values and the project should start to load up.</p>
-</div>
-</li>
-<li>
-<p>You will notice that the project is a simple maven project with
-spring and Fuse dependencies. Open up the pom.xml to check out the dependencies which have been added. We use
-the BOM for spring and Fuse so that the right libraries for the specified version is pulled in.</p>
-<div class="imageblock">
-<div class="content">
-<img src="Screenshot%20from%202020-12-13%2022-23-02.png" alt="Screenshot from 2020 12 13 22 23 02">
-</div>
-</div>
-</li>
-<li>
-<p>Next let us explore the project structure. The source files can be found under /src/main/java.
-RestJavaDslApplication is a simple Spring boot Application class. We will use a simple helper class that enables us to lookup customer class from
-a data source. In this example, for the sake of simplicity we will assume it from a local hashmap. Open up the ProfileLookupBean.java</p>
-<div class="imageblock">
-<div class="content">
-<img src="Screenshot%20from%202020-12-13%2022-36-16.png" alt="Screenshot from 2020 12 13 22 36 16">
-</div>
-</div>
-<div class="paragraph">
-<p>Notice that we have loaded up a sample hashmap with customer class for 5 users.
-In the section marked <code>//TODO lookup customer profile</code> define the following.</p>
-</div>
-<div class="listingblock">
-<div class="content">
+    <div class="sect1">
+        <h2 id="_red_hat_process_automation_manager_workshop">Red Hat Process Automation Manager Workshop</h2>
+        <div class="sectionbody">
+            <div class="paragraph">
+                <p>This workshop is aimed at providing hands on experience on the authoring and management platform for RHPAM. In addition, this lab also provides an introduction to Red Hat Fuse. This lab will implement a Loan Approval workflow.</p>
+            </div>
+            <div class="ulist">
+                <div class="title">Goals</div>
+                <ul>
+                    <li>
+                        <p>Explore Users and Groups Management</p>
+                    </li>
+                    <li>
+                        <p>Create an integration microservice using Red Hat Fuse.</p>
+                    </li>
+                    <li>
+                        <p>Create a simple Loan Approval Workflow</p>
+                    </li>
+                    <li>
+                        <p>Explore Process Admin Operations (Dashboards, SLAs, Assignments, Ressignments)</p>
+                    </li>
+                    <li>
+                        <p>Explore Task Inbox (User Task Approval)</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="sect1">
+        <h2 id="_problem_statement">1. Problem Statement</h2>
+        <div class="sectionbody">
+            <div class="paragraph">
+                <p>In this lab we will create an Loan Approval process.</p>
+            </div>
+            <div class="ulist">
+                <ul>
+                    <li>
+                        <p>Customer initiates the Loan Approval request.</p>
+                    </li>
+                    <li>
+                        <p>Pre Qualification checks are applied to the loan request.</p>
+                    </li>
+                    <li>
+                        <p>If the pre-qualification was succesful, then a suitable loan agent group is identified, the loan request is then assigned to them for approval.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="sect1">
+        <h2 id="_users_and_groups">2. Users and Groups</h2>
+        <div class="sectionbody">
+            <div class="paragraph">
+                <p>In order to demonstrate the assignment and reassignment features, we will set up 3 sample groups and some users.
+                    First, login to Business Central using the credentials provided.On the top right you will see an option for the settings view.</p>
+            </div>
+            <div class="imageblock">
+                <div class="content">
+                    <img src="image/add_asset.jpg" alt="add asset">
+                </div>
+            </div>
+            <div class="olist arabic">
+                <ol class="arabic">
+                    <li>
+                        <p>Now click on the option for <code>Users</code></p>
+                    </li>
+                    <li>
+                        <p>We will create 4 users. For creating a new user, click on the <code>New User</code> option.</p>
+                        <div class="imageblock">
+                            <div class="content">
+                                <img src="image/image-2020-08-31-15-59-38-519.png" alt="image 2020 08 31 15 59 38 519">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>Proceed with the wizard. Enter the username as <code>Mary</code>, then proceed on to add  role to user as below.</p>
+                        <div class="imageblock">
+                            <div class="content">
+                                <img src="image/image-2020-08-31-16-00-57-889.png" alt="image 2020 08 31 16 00 57 889">
+                            </div>
+                        </div>
+                        <div class="imageblock">
+                            <div class="content">
+                                <img src="image/image-2020-08-31-16-04-01-536.png" alt="image 2020 08 31 16 04 01 536">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>Now choose, the role as <code>user</code>.</p>
+                        <div class="imageblock">
+                            <div class="content">
+                                <img src="image/image-2020-08-31-16-05-04-864.png" alt="image 2020 08 31 16 05 04 864">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>Now click on the <code>Create</code> button.</p>
+                    </li>
+                    <li>
+                        <p>Finally set a password <code>redhatpam1!</code> for the user.</p>
+                        <div class="imageblock">
+                            <div class="content">
+                                <img src="image/image-2020-09-01-07-26-15-468.png" alt="image 2020 09 01 07 26 15 468">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>Let us now repeat the same process to create 3 more users.</p>
+                        <table class="tableblock frame-all grid-all stretch">
+                            <colgroup>
+                                <col style="width: 50%;">
+                                <col style="width: 50%;">
+                            </colgroup>
+                            <tbody>
+                            <tr>
+                                <td class="tableblock halign-left valign-top"><p class="tableblock">Username</p></td>
+                                <td class="tableblock halign-left valign-top"><p class="tableblock">Password</p></td>
+                            </tr>
+                            <tr>
+                                <td class="tableblock halign-left valign-top"><p class="tableblock">Robert</p></td>
+                                <td class="tableblock halign-left valign-top"><p class="tableblock">redhatpam1!</p></td>
+                            </tr>
+                            <tr>
+                                <td class="tableblock halign-left valign-top"><p class="tableblock">Patricia</p></td>
+                                <td class="tableblock halign-left valign-top"><p class="tableblock">redhatpam1!</p></td>
+                            </tr>
+                            <tr>
+                                <td class="tableblock halign-left valign-top"><p class="tableblock">John</p></td>
+                                <td class="tableblock halign-left valign-top"><p class="tableblock">redhatpam1!</p></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="paragraph">
+                            <p>Finally you will see the following users.</p>
+                        </div>
+                        <div class="imageblock">
+                            <div class="content">
+                                <img src="image/image-2020-09-01-08-01-51-864.png" alt="image 2020 09 01 08 01 51 864">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>Now let us create 3 groups. For this click on the groups tab as shown in the image.</p>
+                        <div class="imageblock">
+                            <div class="content">
+                                <img src="image/image-2020-09-01-08-02-58-384.png" alt="image 2020 09 01 08 02 58 384">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>Click on the <code>New Group</code> option. Provide a name for the group `seniorUserAgent.</p>
+                        <div class="imageblock">
+                            <div class="content">
+                                <img src="image/image-2020-09-01-08-04-32-270.png" alt="image 2020 09 01 08 04 32 270">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>Now you should see the list of users, show up. Choose the user <code>John</code> and click on <code>Add Selected User</code>.</p>
+                        <div class="imageblock">
+                            <div class="content">
+                                <img src="image/image-2020-09-01-08-05-54-905.png" alt="image 2020 09 01 08 05 54 905">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>Repeat the same process to create two more groups.</p>
+                        <table class="tableblock frame-all grid-all stretch">
+                            <colgroup>
+                                <col style="width: 50%;">
+                                <col style="width: 50%;">
+                            </colgroup>
+                            <tbody>
+                            <tr>
+                                <td class="tableblock halign-left valign-top"><p class="tableblock">Group Name</p></td>
+                                <td class="tableblock halign-left valign-top"><p class="tableblock">Users</p></td>
+                            </tr>
+                            <tr>
+                                <td class="tableblock halign-left valign-top"><p class="tableblock">nonResidentGroup</p></td>
+                                <td class="tableblock halign-left valign-top"><p class="tableblock">Patricia</p></td>
+                            </tr>
+                            <tr>
+                                <td class="tableblock halign-left valign-top"><p class="tableblock">loanAgent</p></td>
+                                <td class="tableblock halign-left valign-top"><p class="tableblock">Mary, Robert</p></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                    <li>
+                        <p>Finally you should see the following groups.</p>
+                        <div class="imageblock">
+                            <div class="content">
+                                <img src="image/image-2020-09-01-08-09-15-230.png" alt="image 2020 09 01 08 09 15 230">
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="sect1">
+        <h2 id="_create_a_project">3. Create a Project</h2>
+        <div class="sectionbody">
+            <div class="paragraph">
+                <p>To define and deploy a business process, we first need to create a new project in which we can store the BPMN2 model, our domain model and the forms required for user interaction. To create a new project:</p>
+            </div>
+            <div class="olist arabic">
+                <ol class="arabic">
+                    <li>
+                        <p>Navigate to {business_central}</p>
+                    </li>
+                    <li>
+                        <p>Login to the platform with the provided username and password.</p>
+                    </li>
+                    <li>
+                        <p>Click on <strong>Design</strong> to navigate to the Design perspective.</p>
+                        <div class="imageblock">
+                            <div class="content">
+                                <img src="image/image-2020-09-02-11-51-02-580.png" alt="image 2020 09 02 11 51 02 580">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <p>In the Design perspective, create a new project. If your space is empty, this can be done by clicking on the blue <strong>Add Project</strong> button in the center of the page. If you already have projects in your space, you can click on the blue <strong>Add Project</strong> icon at the top right of the page.</p>
+                    </li>
+                    <li>
+                        <p>Give the project the name <code>loan-approval</code>, and the description "Loan Approval Process".</p>
+                        <div class="imageblock">
+                            <div class="content">
+                                <img src="image/image-2020-09-02-11-51-29-783.png" alt="image 2020 09 02 11 51 29 783">
+                            </div>
+                        </div>
+                        <div class="paragraph">
+                            <p>With the project created, we can now start building our solution.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="sect1">
+        <h2 id="_solution">4. Solution</h2>
+        <div class="sectionbody">
+            <div class="sect2">
+                <h3 id="_the_domain_model">4.1. The Domain Model</h3>
+                <div class="paragraph">
+                    <p>The business process will collect and carry data through the execution of the process. This data is stored in a data model or domain model.</p>
+                </div>
+                <div class="olist arabic">
+                    <ol class="arabic">
+                        <li>
+                            <p>In your project, click on the <em>Add Asset</em> button in the middle of the screen.</p>
+                        </li>
+                    </ol>
+                </div>
+                <div class="imageblock">
+                    <div class="content">
+                        <img src="image/image-2020-09-01-08-17-43-292.png" alt="image 2020 09 01 08 17 43 292">
+                    </div>
+                </div>
+                <div class="olist arabic">
+                    <ol class="arabic">
+                        <li>
+                            <p>In the drop-down menu in the upper-left corner, select <code>Model</code>. Click on the <em>Data Object</em> tile.</p>
+                        </li>
+                        <li>
+                            <p>Give the <em>Data Object</em> the name <code>LoanApplicant</code>. Leave the package set to default.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-08-17-43-292.png" alt="image 2020 09 01 08 17 43 292">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Add the following fields to the <code>LoanApplicant</code> data object by clicking on the <code>+ add field</code> button:</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-11-09-16-48-941.png" alt="image 2020 12 11 09 16 48 941">
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+                <div class="paragraph">
+                    <p>We can now create the required decisions for our process.</p>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="_creating_the_pre_qualification_decision">4.2. Creating the Pre-Qualification Decision</h3>
+                <div class="paragraph">
+                    <p>First let us create a simple Pre Qualification decision.</p>
+                </div>
+                <div class="paragraph">
+                    <p>We will use the <em>Guided Decision Table</em> asset.</p>
+                </div>
+                <div class="quoteblock">
+                    <blockquote>
+                        <div class="olist arabic">
+                            <ol class="arabic">
+                                <li>
+                                    <p>Guided Decison are rules that you create in a UI-based table designer in Decision Central</p>
+                                </li>
+                                <li>
+                                    <p>Are a wizard-led alternative to uploaded decision table spreadsheets</p>
+                                </li>
+                                <li>
+                                    <p>Provide fields and options for acceptable input</p>
+                                </li>
+                            </ol>
+                        </div>
+                    </blockquote>
+                </div>
+                <div class="olist arabic">
+                    <ol class="arabic">
+                        <li>
+                            <p>Now go back to the asset library and click on <em>Add Asset</em> button. Choose the Guided Decision Table option.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-11-09-18-54-558.png" alt="image 2020 12 11 09 18 54 558">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Guided Decision tables provide wizard based approach to defining condition and action columns.</p>
+                            </div>
+                            <div class="paragraph">
+                                <p>On the Guided Decision Table editor click on the Columns Tab.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-09-28-55-803.png" alt="image 2020 09 01 09 28 55 803">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>To Add a condition colum click on the <em>Insert Column</em> button. This will open up the wizard. Choose the <em>Add a Condition</em> option and click on <em>Next</em></p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-09-29-49-943.png" alt="image 2020 09 01 09 29 49 943">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>First we need to import the data objects which we will be using for the rule. For this click on the <em>Create a new Fact Pattern</em> button.</p>
+                            </div>
+                            <div class="paragraph">
+                                <p>Choose the <code>LoanApplicant</code> type and provide a binding variable. This is required so that we can start defining condition and action columns based on the <em>LoanApplicant</em> object.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-09-31-00-274.png" alt="image 2020 09 01 09 31 00 274">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Next let us define the Calculation type, we will choose the <em>Literal Value</em> and proceed.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-09-31-33-748.png" alt="image 2020 09 01 09 31 33 748">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>We will choose the <code>age</code> field.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-09-32-17-242.png" alt="image 2020 09 01 09 32 17 242">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Since we need to define the Min age check, we will choose the operation as <code>greater than</code> and proceed.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-09-32-52-538.png" alt="image 2020 09 01 09 32 52 538">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Finally we will give the column a header name and save the column definition.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-09-33-31-846.png" alt="image 2020 09 01 09 33 31 846">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Next we will define the Max Age column, repeat the same steps as above but choose the operation type as <code>less than</code> instead. We will name this <code>Age &lt; Than</code></p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-09-34-22-468.png" alt="image 2020 09 01 09 34 22 468">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Next let us define the Credit Score.</p>
+                            <div class="paragraph">
+                                <p>For this click on <code>Insert Column</code>, choose the <code>loanApplicant</code> fact pattern, and choose the calculation type as <code>Literal value</code> column name as <code>creditScore</code></p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-09-39-52-940.png" alt="image 2020 09 01 09 39 52 940">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>We will choose the operator as <code>greater than</code>, proceed on to provide a header name and save.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-09-41-07-073.png" alt="image 2020 09 01 09 41 07 073">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Next we will define the check for <code>loanAmount</code>. For this click on <code>Insert Column</code>, choose the <code>loanApplicant</code> fact pattern, and choose the calculation type as <code>Literal value</code> column name as <code>loanAmount</code>
+                                We will choose the operator as <code>less than</code>, proceed on to provide a header name and save.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-09-43-28-513.png" alt="image 2020 09 01 09 43 28 513">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Finally let us create a column for <code>residency</code>.
+                                For this click on <code>Insert Column</code>, choose the <code>loanApplicant</code> fact pattern, and choose the calculation type as <code>Literal value</code> column name as <code>residency</code>
+                                We will choose the operator as <code>equal to</code>, proceed on to provide a header name and save.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-09-45-19-901.png" alt="image 2020 09 01 09 45 19 901">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Now we will define the action column. For this click on <code>Insert Column</code>. Choose the option for <code>Set the value of field</code> and click next.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-09-47-12-378.png" alt="image 2020 09 01 09 47 12 378">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Choose the fact pattern <code>loanApplicant</code> and proceed. Choose the <code>Field</code> as <code>loanPreQualification</code>.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-09-48-38-660.png" alt="image 2020 09 01 09 48 38 660">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Finally add a header for the column and save.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Now, we will add an Attribute column to the table. This will help us define the Rule flow group for this rule.
+                                Rule flow Group provides a mechanism for grouping and executing rules. We will use this grouping on our process to indicate which rule to execute.</p>
+                            <div class="paragraph">
+                                <p>For this click on the <code>Insert Column</code> button. Check the box for <code>Include advanced options</code> and choose <code>Add an Attribute column</code> option.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-10-00-30-396.png" alt="image 2020 09 01 10 00 30 396">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Choose the <code>Ruleflow-Group</code> option.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-10-01-41-147.png" alt="image 2020 09 01 10 01 41 147">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Now expand the <code>Attribute columns</code> section as shown below. Enter the <code>Default Value</code> as <code>loanPreQualification</code> and check the box to hide the column.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-10-03-44-587.png" alt="image 2020 09 01 10 03 44 587">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Now switch back to the <code>Model</code> Tab, you can see the following table setup.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-10-20-44-480.png" alt="image 2020 09 01 10 20 44 480">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Let us now fill up the table with values as below. For this choose the <code>Insert</code> button.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-10-21-11-802.png" alt="image 2020 09 01 10 21 11 802">
+                                </div>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-11-30-24-106.png" alt="image 2020 09 01 11 30 24 106">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>If you need to remove any of the cell values which you might have wrongly entered, right click on the cell and click on <code>Delete Cell</code>. If you need delete the whole row, select the row and right click to <code>Delete row(s)</code></p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="_creating_the_group_assignment_decision">4.3. Creating the Group Assignment Decision</h3>
+                <div class="olist arabic">
+                    <ol class="arabic">
+                        <li>
+                            <p>Now, we will create another Decision table to dynamically determine which agent group to assign the loan approval request to. For this go back to the asset library and click on <em>Add Asset</em> button. Choose the Guided Decision Table option.</p>
+                            <div class="paragraph">
+                                <p>For this decision table, we will choose the <code>Hit Policy</code> as <code>First Hit</code>.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-11-37-52-314.png" alt="image 2020 09 01 11 37 52 314">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Now let us define the columns. For this click on the <code>Columns</code> tab.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-11-41-58-073.png" alt="image 2020 09 01 11 41 58 073">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Click on the <code>Insert Column</code> button, choose the option for <code>Add a condition</code> and click next. As we did earlier we will need to define a Fact pattern. For this click on <code>Create a new Fact Pattern</code>.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-11-52-13-728.png" alt="image 2020 09 01 11 52 13 728">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Create the fact pattern as above and proceed. Choose <code>Calculation type</code> as <code>Literal value</code>. Choose the <code>Field</code> as <code>age</code> and click on next. We will define the column as <code>greater than</code> as shown below.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-11-54-32-433.png" alt="image 2020 09 01 11 54 32 433">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Provide a header name for the column and click on save</p>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Next let us create the next condition column. For this, click
+                                on <code>Insert Column</code>, choose the fact pattern we created in the earlier step, choose the <code>Calculation type</code> as <code>Literal value</code>. Choose the <code>Field</code> as <code>residency</code>. For this we will define the operator as <code>equals to</code></p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-11-57-30-226.png" alt="image 2020 09 01 11 57 30 226">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Next let us define the <code>Action</code> column. For this click on <code>Insert Column</code> button, choose the option to <code>Set the value of a field</code>.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-13-40-26-597.png" alt="image 2020 09 01 13 40 26 597">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Choose the Fact pattern which we created earlier, choose the <code>Field</code> as <code>loanGroupAssignment</code>. Provide a header name for the column and save changes.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Finally we will add an <code>Attribute</code> column for defining the Rule flow group. As we did with the previous decision table, click on <code>Insert Column</code>, choose the <code>Include advanced options</code> checkbox, and choose <code>Add an attribute column</code>.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-13-56-29-911.png" alt="image 2020 09 01 13 56 29 911">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>We will choose the Ruleflow-Group option.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-13-57-07-947.png" alt="image 2020 09 01 13 57 07 947">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Expand the <code>Attribute Columns</code> and provide a default value for the <code>ruleflow-group</code> as below.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-13-58-31-076.png" alt="image 2020 09 01 13 58 31 076">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>The table should now look like this. Next we will click on the <code>Insert</code> button to fill up the table as below.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-13-42-52-175.png" alt="image 2020 09 01 13 42 52 175">
+                                </div>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-13-46-13-210.png" alt="image 2020 09 01 13 46 13 210">
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="_creating_the_customer_profile_lookup_service">4.4. Creating the Customer Profile Lookup Service</h3>
+                <div class="paragraph">
+                    <p>Now let us create a simple Fuse service to lookup customer profile information. The service will lookup the Customer Class based on the Customer id.
+                        We will use <a href="https://developers.redhat.com/products/codeready-studio/download?extIdCarryOver=true&amp;sc_cid=7013a000002goGYAAY">Red Hat Developer Studio</a> for creating this service.</p>
+                </div>
+                <div class="olist arabic">
+                    <ol class="arabic">
+                        <li>
+                            <p>Launch the developer studio from the installed location.</p>
+                        </li>
+                        <li>
+                            <p>We will start with a base project for creating the service. For this we will import
+                                the project from git.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-22-13-35-933.png" alt="image 2020 12 13 22 13 35 933">
+                                </div>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="2020-12-13 22-15-52.png" alt="Screenshot from 2020 12 13 22 15 52">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>We will clone URI from the location</p>
+                            </div>
+                            <div class="listingblock">
+                                <div class="content">
+                                    <pre class="highlight"><code>https://github.com/snandakumar87/customer-profile-service</code></pre>
+                                </div>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="2020-12-13 22-17-26.png" alt="Screenshot from 2020 12 13 22 17 26">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Follow along the wizard with the default values and the project should start to load up.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <p>You will notice that the project is a simple maven project with
+                                spring and Fuse dependencies. Open up the pom.xml to check out the dependencies which have been added. We use
+                                the BOM for spring and Fuse so that the right libraries for the specified version is pulled in.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="2020-12-13 22-23-02.png" alt="Screenshot from 2020 12 13 22 23 02">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Next let us explore the project structure. The source files can be found under /src/main/java.
+                                RestJavaDslApplication is a simple Spring boot Application class. We will use a simple helper class that enables us to lookup customer class from
+                                a data source. In this example, for the sake of simplicity we will assume it from a local hashmap. Open up the ProfileLookupBean.java</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="2020-12-13 22-36-16.png" alt="Screenshot from 2020 12 13 22 36 16">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Notice that we have loaded up a sample hashmap with customer class for 5 users.
+                                    In the section marked <code>//TODO lookup customer profile</code> define the following.</p>
+                            </div>
+                            <div class="listingblock">
+                                <div class="content">
 <pre class="highlight"><code>String custId = (String) exchange.getIn().getHeader("custId");
 return customerClassMap.get(custId);</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Make sure to remove null return from the skeleton implementation. Now that we have a helper class to
-look up the data, let us now define the integration route.</p>
-</div>
-</li>
-<li>
-<p>The UserManagementRoute will be route definition file for defining the integration. Routes contain the flow and logic of integration between different systems.
-In order to define routes more easy and clean, Camel offers several different domain-specific languages (DSL) for programming languages like Java. Open up this clas.</p>
-<div class="imageblock">
-<div class="content">
-<img src="Screenshot%20from%202020-12-13%2022-33-02.png" alt="Screenshot from 2020 12 13 22 33 02">
-</div>
-</div>
-<div class="paragraph">
-<p>Notice that the skeleton for the Route has been created. We will now define the route to expose a rest service, which will accept a customer id
-over a <code>GET</code> class and invoke the helper bean to get the customer class.</p>
-</div>
-<div class="listingblock">
-<div class="content">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Make sure to remove null return from the skeleton implementation. Now that we have a helper class to
+                                    look up the data, let us now define the integration route.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <p>The UserManagementRoute will be route definition file for defining the integration. Routes contain the flow and logic of integration between different systems.
+                                In order to define routes more easy and clean, Camel offers several different domain-specific languages (DSL) for programming languages like Java. Open up this clas.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="2020-12-13-22-33-02.png" alt="Screenshot from 2020 12 13 22 33 02">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Notice that the skeleton for the Route has been created. We will now define the route to expose a rest service, which will accept a customer id
+                                    over a <code>GET</code> class and invoke the helper bean to get the customer class.</p>
+                            </div>
+                            <div class="listingblock">
+                                <div class="content">
 <pre class="highlight"><code>rest("/lookup/{custId}")
           .bindingMode(RestBindingMode.json)
           .get()
@@ -1163,628 +1163,628 @@ over a <code>GET</code> class and invoke the helper bean to get the customer cla
           .route()
           .bean(ProfileLookupBean.class,"lookupCustomerClass")
           .endRest();</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Notice how the Java DSL provides a simple builder syntax for creating route definitions.</p>
-</div>
-</li>
-<li>
-<p>We are now all set to build and deploy the code. For this, open up the RestJavaDSLApplication.java class, right click and Run as Java Application.</p>
-<div class="paragraph">
-<p>Now open up a browser with the url</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>http://localhost:8087/camel-rest/lookup/2</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This should result in a response "SILVER". Next let us define our workflow.</p>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_creating_the_loan_approval_workflow">4.5. Creating the Loan Approval Workflow</h3>
-<div class="paragraph">
-<p>Now that we have created all necessary pieces, we will now define the process. We will be building the following process flow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-22-51-02-293.png" alt="image 2020 12 13 22 51 02 293">
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Since, we will be invoking a REST service from our business process, we will first need to enable the corresponding Service task to give us that capability. For this, go to the library view, and open up the option for
-<code>Settings</code>.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-22-56-19-561.png" alt="image 2020 12 13 22 56 19 561">
-</div>
-</div>
-<div class="paragraph">
-<p>Leave the Username/password blank as our service is not secured with authentication.</p>
-</div>
-</li>
-<li>
-<p>Go back to the asse library and click on the <em>Add Asset</em> button and choose the <em>Business Process</em> type.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-13-48-06-825.png" alt="image 2020 09 01 13 48 06 825">
-</div>
-</div>
-</li>
-<li>
-<p>When the process designer opens, click on the properties pane to open it up.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-13-49-23-559.png" alt="image 2020 09 01 13 49 23 559">
-</div>
-</div>
-</li>
-<li>
-<p>Scroll down in the property panel on the right side of the screen, until you see the section <em>Process Data</em>.</p>
-</li>
-<li>
-<p>Expand the <em>Process Data</em> section and add the following <em>Process Variable</em> by clicking on the <em>+</em> sign.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-22-58-53-289.png" alt="image 2020 12 13 22 58 53 289">
-</div>
-</div>
-</li>
-<li>
-<p>Next let us define the steps one by one. First drag drop the start node from the left side pane.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-14-01-07-918.png" alt="image 2020 09 01 14 01 07 918">
-</div>
-</div>
-</li>
-<li>
-<p>We will now create the task to invoke the REST service we created. For this open up the palette from the left.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-00-34-446.png" alt="image 2020 12 13 23 00 34 446">
-</div>
-</div>
-<div class="paragraph">
-<p>Drag and drop the component on the canvas. We will now define the properties, for this click on the hidden property pane on the right.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-02-11-356.png" alt="image 2020 12 13 23 02 11 356">
-</div>
-</div>
-<div class="paragraph">
-<p>We will define the <code>Name</code> as`Lookup Customer Profile`. Click on the <code>Data Assignments</code> section to open it up. Click on the pencil icon to open up details.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-04-30-946.png" alt="image 2020 12 13 23 04 30 946">
-</div>
-</div>
-<div class="paragraph">
-<p>In the input section, We will define the Method as <code>GET</code> and the Url as <code><a href="http://localhost:8087/camel-rest/lookup/#{loanApplicant.customerId}" class="bare">http://localhost:8087/camel-rest/lookup/#{loanApplicant.customerId}</a></code>
-We will leave all other input fields blank. We will map the output Result to the <code>customerClass</code> variable that we created earlier.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-06-50-226.png" alt="image 2020 12 13 23 06 50 226">
-</div>
-</div>
-</li>
-<li>
-<p>We will now define an alternate path for PLATINUM customers. We will by pass the approval process. For this
-we will add a gateway that checks for the customer class and skip execution.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-15-12-155.png" alt="image 2020 12 13 23 15 12 155">
-</div>
-</div>
-<div class="paragraph">
-<p>Now let us add a Script task so that we can mark the execution as complete. For this open up the palette
-from the left and choose the task type as below.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-17-06-052.png" alt="image 2020 12 13 23 17 06 052">
-</div>
-</div>
-<div class="paragraph">
-<p>We will name this task <code>Auto Approve</code>, open up the Implementation/Execution section and add the Script value as below,</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>kcontext.setVariable("loanApplicant.loanQualification",true);</code></pre>
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-18-46-708.png" alt="image 2020 12 13 23 18 46 708">
-</div>
-</div>
-<div class="paragraph">
-<p>Finally we will define a end node to end this part of the flow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-19-47-766.png" alt="image 2020 12 13 23 19 47 766">
-</div>
-</div>
-<div class="paragraph">
-<p>Now we will connect all of these nodes using arrows. To connect any node click on the node and choose the context help displayed around the node to choose the arrow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-21-16-905.png" alt="image 2020 12 13 23 21 16 905">
-</div>
-</div>
-<div class="paragraph">
-<p>The process should look like this.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-22-34-837.png" alt="image 2020 12 13 23 22 34 837">
-</div>
-</div>
-</li>
-<li>
-<p>Next we will define the <em>Loan Pre-Qualification</em> node. For this we will need to choose the <em>Business Rule</em> node. Click on the left side process palette on the Task(Rectangle) option and drag drop the node on to the canvas.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-07-54-495.png" alt="image 2020 12 13 23 07 54 495">
-</div>
-</div>
-<div class="paragraph">
-<p>Now click on the node and edit the properties on the right side pane. We will give it a name and rule flow group as below.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-10-55-683.png" alt="image 2020 12 13 23 10 55 683">
-</div>
-</div>
-<div class="paragraph">
-<p>Next we will define the Inputs/Ouputs for the Rule. For this scroll down to the <em>Data Assignments</em> section and click on the Assignments. We will map the <code>loanApplicant</code> as input and the <code>loanApplicant</code> as output.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-11-46-571.png" alt="image 2020 12 13 23 11 46 571">
-</div>
-</div>
-<div class="paragraph">
-<p>Next connect the nodes as below.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-25-55-756.png" alt="image 2020 12 13 23 25 55 756">
-</div>
-</div>
-</li>
-<li>
-<p>Now click on the gateway, and define the default path as below.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-26-48-272.png" alt="image 2020 12 13 23 26 48 272">
-</div>
-</div>
-<div class="paragraph">
-<p>We will also define the path for the Auto approval. For this click on the arrow that connects the gateway to the Auto Approve task. On the Implementation/Execution section,
-define the condition for filtering PLATINUM customers.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-29-06-949.png" alt="image 2020 12 13 23 29 06 949">
-</div>
-</div>
-</li>
-<li>
-<p>Next we need to define a gateway to filter only applicants with succesful Pre Qualification check. Click on the Rhombus from the process palette(on the left) and choose the Exclusive.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-30-10-141.png" alt="image 2020 12 13 23 30 10 141">
-</div>
-</div>
-</li>
-<li>
-<p>Next we will need to invoke the Loan Group Assignment. For this click on the <em>Task</em> node from the process palette(on the left) and choose the <em>Business Rule</em> node.</p>
-<div class="paragraph">
-<p>We will edit the name and add the Rule Flow group as below.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-32-16-127.png" alt="image 2020 12 13 23 32 16 127">
-</div>
-</div>
-<div class="paragraph">
-<p>We will add the Assignment as we did in the previous step with the following definition.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-32-46-992.png" alt="image 2020 12 13 23 32 46 992">
-</div>
-</div>
-</li>
-<li>
-<p>We will also choose the Red circle from the process palette(on the left) and choose the <em>End</em> event. Now we will connect the arrows between the <em>Loan PreQualification</em>, gateway and the <em>Group Assignment</em> as below.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-33-32-695.png" alt="image 2020 12 13 23 33 32 695">
-</div>
-</div>
-<div class="paragraph">
-<p>We will also need to define the logic for the gateway, for this click on the arrow to the <em>Group Assignment</em> and expand the <em>Implementation/Execution</em> section. Here we will define the logic as below.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-34-23-537.png" alt="image 2020 12 13 23 34 23 537">
-</div>
-</div>
-<div class="paragraph">
-<p>We will define the default path for the gateway as End, as below.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-35-58-796.png" alt="image 2020 12 13 23 35 58 796">
-</div>
-</div>
-</li>
-<li>
-<p>Last we will define a human task for the Loan Manager approval. For this click on the <em>Task</em> node from the process palette(on the left) and click on the <em>User</em> task. Drag drop the node on to the canvas.</p>
-<div class="paragraph">
-<p>We will edit the name and add the <em>Groups</em>. Add the value as</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>#{loanApplicant.loanGroupAssignment}</code></pre>
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-38-22-425.png" alt="image 2020 12 13 23 38 22 425">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-36-47-225.png" alt="image 2020 12 13 23 36 47 225">
-</div>
-</div>
-<div class="paragraph">
-<p>Next scroll down to the <em>Assignments</em> section and add the following assignment.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-38-58-441.png" alt="image 2020 12 13 23 38 58 441">
-</div>
-</div>
-</li>
-<li>
-<p>Finally connect the <code>Loan Approval</code> task with the end node and connect the arrows.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-39-36-641.png" alt="image 2020 12 13 23 39 36 641">
-</div>
-</div>
-</li>
-<li>
-<p>Finally click on <em>Validate</em> and it should be succesful.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_creating_the_user_forms">4.6. Creating the User Forms</h3>
-<div class="paragraph">
-<p>Next we will create User Forms to interact with the human tasks. We will set up one form to start the process and one for the Loan Manager Approval.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>For this on the Process editor click on the following option and choose <code>Generate all Forms</code>.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-40-13-100.png" alt="image 2020 12 13 23 40 13 100">
-</div>
-</div>
-<div class="paragraph">
-<p>This will create a form with all possible values, we will now edit these forms to make sure we have the right fields.</p>
-</div>
-</li>
-<li>
-<p>Go Back to the Asset Library view and filter by Forms. You should now see 3 forms generated.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-16-56-47-564.png" alt="image 2020 09 01 16 56 47 564">
-</div>
-</div>
-</li>
-<li>
-<p>Now open up the Form com_myspace_loan_approval_LoanApplicant</p>
-<div class="paragraph">
-<p>You can see the various fields possible for an <code>LoanApplicant</code>. Let us remove the field <code>Loan Pre Qualification</code>, <code>Loan Qualification</code> and <code>LoanGroupAssignment</code> by clicking on the three dots on the right side of the field. You can also rearrange the fields as you see fit.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-43-32-596.png" alt="image 2020 12 13 23 43 32 596">
-</div>
-</div>
-<div class="paragraph">
-<p>Save the changes.</p>
-</div>
-<div class="paragraph">
-<p>Finally let us open up the User Task Form - <code>Task-taskform</code> and make sure the fields look up. Remove the field name <code>CustomerClass</code>, this will come from the service lookup.</p>
-</div>
-</li>
-<li>
-<p>Now we are ready to build and deploy the changes. Go back to the asset library and click on <em>Deploy</em>. (The Deploy action Builds &amp; Deploys the changes).</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_process_management_and_tracking">4.7. Process Management and Tracking</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>After the build is succesful, click top menu option and choose <em>Process Definition</em>.</p>
-</li>
-<li>
-<p>We can see the Process Defintion listed, now click on the three dots on the right side of the Process <code>loan-approval-wkflow</code>. Click on <em>Start</em></p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-01-17-01-44-193.png" alt="image 2020 09 01 17 01 44 193">
-</div>
-</div>
-</li>
-<li>
-<p>This should open up the Process Start Form.
-Enter the values for the form and proceed.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-46-48-755.png" alt="image 2020 12 13 23 46 48 755">
-</div>
-</div>
-</li>
-<li>
-<p>We can now see the Process Instance View load up automatically.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-47-10-006.png" alt="image 2020 12 13 23 47 10 006">
-</div>
-</div>
-<div class="paragraph">
-<p>Inspect the Process Summary</p>
-</div>
-</li>
-<li>
-<p>Click on the Diagram Tab on the Process Instance View.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-47-28-660.png" alt="image 2020 12 13 23 47 28 660">
-</div>
-</div>
-<div class="paragraph">
-<p>You can see that the completed steps show up in grey color and the current task in progress shows up with a Red outline.</p>
-</div>
-</li>
-<li>
-<p>Let us now quickly explore the admin options on the <code>Process Instances</code> tab.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-02-07-04-18-323.png" alt="image 2020 09 02 07 04 18 323">
-</div>
-</div>
-<div class="paragraph">
-<p>To start with, you can see that there is a <code>Filter</code> section on the left. This section lets us manage the filter criteria for this dashboard. The default filter options based on status, SLAs and Process definition are all mentioned here. This perspective also allows you to create a <code>New Process Instance</code>. The table shows the content filtered based on the criteria specified.</p>
-</div>
-</li>
-<li>
-<p>Let us now explore some complex monitoring options. Assuming that, you will need to track SLAs on the process and alert when they breach. For this go back the designer and open up the Process for authoring again.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-48-26-058.png" alt="image 2020 12 13 23 48 26 058">
-</div>
-</div>
-<div class="paragraph">
-<p>On the authoring perspective, as shown above, let us set an SLA. Save, build and deploy the changes.</p>
-</div>
-<div class="paragraph">
-<p>Let us create a new process instance as we did earlier, with the same input data.</p>
-</div>
-<div class="paragraph">
-<p>Now go back to the <code>Manage</code> perspective and navigate back to the <code>Process Instance</code> section. Since, we set the SLA as 2s it will almost immediately go in to the violated state. Let us verify that here. From the left side filter section, select the SLA violation.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-02-07-15-30-551.png" alt="image 2020 09 02 07 15 30 551">
-</div>
-</div>
-<div class="paragraph">
-<p>You should see that the SLA violation related results loads up on the right hand side.</p>
-</div>
-</li>
-<li>
-<p>The <code>Manage</code> section also provides for a way to define custom queries on the process data. The following diagram shows how you can setup a custom filter.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-13-23-50-32-798.png" alt="image 2020 12 13 23 50 32 798">
-</div>
-</div>
-<div class="paragraph">
-<p>Now let us go back process which we last created, The task is assigned to a loan agent group dynamically at runtime based on the rules we configured. Let us see which group this assignment has been done for. For this click on the <code>Tasks</code> option from the <code>Manager</code> menu option.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-02-06-58-57-687.png" alt="image 2020 09 02 06 58 57 687">
-</div>
-</div>
-<div class="paragraph">
-<p>You will now see the task management perspective.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-02-06-59-38-570.png" alt="image 2020 09 02 06 59 38 570">
-</div>
-</div>
-<div class="paragraph">
-<p>Note: if you cant see the tasks on the Task Management Perspective, it is likely that the user logged in
-does not have the right role. For this open up the file $JBOSS_HOME/standalone/configuration/application-roles.properties and
-add <code>Administrators</code> as a role to the logged in user.</p>
-</div>
-<div class="paragraph">
-<p>Open up the task, and navigate to the <code>Assignments</code> tab.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-02-07-01-03-446.png" alt="image 2020 09 02 07 01 03 446">
-</div>
-</div>
-</li>
-<li>
-<p>Let us now try to change the rule logic which governs this assignment. Go back in to the <code>Design</code> perspective and open up the guided decision table <code>AgentGroupAssignment</code>.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-14-00-09-24-804.png" alt="image 2020 12 14 00 09 24 804">
-</div>
-</div>
-<div class="paragraph">
-<p>Make some changes to the second row, so that we assign RESIDENT cases also to the seniorUserAgent. Now save the business rule, build and deploy the changes.</p>
-</div>
-<div class="paragraph">
-<p>We will now create another process instance using the very same input test data.</p>
-</div>
-<div class="paragraph">
-<p>Now go in to the <code>Manage</code> perspective and open up the <code>Tasks</code> section. If we inspect the last task created, we can see it has now been assigned to <code>seniorAgent</code> instead of <code>nonResidentGroup</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-02-07-25-06-981.png" alt="image 2020 09 02 07 25 06 981">
-</div>
-</div>
-</li>
-<li>
-<p>Next let us assume that the group of users are overloaded with work, so we want to make sure the tasks are not in pending state for a long time. For this we want to put some controls in such that, if a tasks is not started by a group until <code>x</code> mins/hours we want to ressignment to somebody. Let us now move back to the <code>Design</code> Perspective and open up the business process.</p>
-<div class="paragraph">
-<p>On the Process, click on the <code>Loan Approval</code> task. On the right side pane, expand the <code>Implementation/Execution</code> section. Here click on the <code>Reassignments</code> section.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image-2020-12-14-00-10-57-991.png" alt="image 2020 12 14 00 10 57 991">
-</div>
-</div>
-<div class="paragraph">
-<p>Click on the <code>Add</code> button and provide the reassingment strategy as below.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-02-08-11-17-607.png" alt="image 2020 09 02 08 11 17 607">
-</div>
-</div>
-<div class="paragraph">
-<p>Click on <code>Ok</code>, save changes, build and deploy the project. Now navigate back to the <code>Manage</code> perspective and create a process one more time with the same test data.</p>
-</div>
-<div class="paragraph">
-<p>The process should be created, let us wait a minute and open up the <code>Task</code> section on the management perspective.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-02-08-12-23-258.png" alt="image 2020 09 02 08 12 23 258">
-</div>
-</div>
-<div class="paragraph">
-<p>You can see that the task has been reassigned. Open up the <code>Logs</code> tab to see how the reassignment happened.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-02-08-13-09-454.png" alt="image 2020 09 02 08 13 09 454">
-</div>
-</div>
-</li>
-<li>
-<p>Next let us look at how an admin can manually delegate tasks. Go back to the <code>Assignment</code> section. Now enter the <code>User</code> to delegate as <code>adminUser</code> and click on delegate.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-02-09-42-27-479.png" alt="image 2020 09 02 09 42 27 479">
-</div>
-</div>
-<div class="paragraph">
-<p>You can see the task has been reassigned to <code>adminUser</code> now. Also check the <code>Logs</code> tab to see the audit log of how the reassignment happened.</p>
-</div>
-</li>
-<li>
-<p>Next let us go back to the <code>Task</code> dashboard by following the breadcrumb.</p>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-02-09-44-01-553.png" alt="image 2020 09 02 09 44 01 553">
-</div>
-</div>
-<div class="paragraph">
-<p>You can see that because of the assignment, the <code>Actual Owner</code> for the task has been changed to <code>adminUser</code> and the task is now in the <code>Reserved</code> state.</p>
-</div>
-<div class="paragraph">
-<p>As you can see, the dashboard provides bulk operations on the tasks. This allows us to claim, suspend, start,release tasks.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-02-08-17-24-629.png" alt="image 2020 09 02 08 17 24 629">
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_task_inbox">4.8. Task Inbox</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Task Inbox shows up assigned tasks for the user. This perspective allows the user to work on a task. Lets now login as <code>adminUser</code>. Since we reassigned a task to that user, we should be able to see the task waiting on the inbox.</p>
-<div class="paragraph">
-<p>Click on the top section and choose the <code>Task Inbox</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-02-09-45-45-917.png" alt="image 2020 09 02 09 45 45 917">
-</div>
-</div>
-<div class="paragraph">
-<p>There should be a task waiting, open it up.
-As you can see the task form shows up.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-02-09-47-26-921.png" alt="image 2020 09 02 09 47 26 921">
-</div>
-</div>
-<div class="paragraph">
-<p>You can see that the details section allows for <code>Priority</code>  to be changed. This can be used in a reassignment strategy if need be.</p>
-</div>
-<div class="paragraph">
-<p>Let us now switch back to the <code>Work</code> tab, and click on the <code>Start</code> button.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/image-2020-09-02-10-18-03-038.png" alt="image 2020 09 02 10 18 03 038">
-</div>
-</div>
-<div class="paragraph">
-<p>Now you can see additional options to <code>Complete</code>. Click on <code>Complete</code>. The task should now get completed.</p>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Notice how the Java DSL provides a simple builder syntax for creating route definitions.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <p>We are now all set to build and deploy the code. For this, open up the RestJavaDSLApplication.java class, right click and Run as Java Application.</p>
+                            <div class="paragraph">
+                                <p>Now open up a browser with the url</p>
+                            </div>
+                            <div class="listingblock">
+                                <div class="content">
+                                    <pre class="highlight"><code>http://localhost:8087/camel-rest/lookup/2</code></pre>
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>This should result in a response "SILVER". Next let us define our workflow.</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="_creating_the_loan_approval_workflow">4.5. Creating the Loan Approval Workflow</h3>
+                <div class="paragraph">
+                    <p>Now that we have created all necessary pieces, we will now define the process. We will be building the following process flow.</p>
+                </div>
+                <div class="imageblock">
+                    <div class="content">
+                        <img src="image-2020-12-13-22-51-02-293.png" alt="image 2020 12 13 22 51 02 293">
+                    </div>
+                </div>
+                <div class="olist arabic">
+                    <ol class="arabic">
+                        <li>
+                            <p>Since, we will be invoking a REST service from our business process, we will first need to enable the corresponding Service task to give us that capability. For this, go to the library view, and open up the option for
+                                <code>Settings</code>.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-22-56-19-561.png" alt="image 2020 12 13 22 56 19 561">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Leave the Username/password blank as our service is not secured with authentication.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Go back to the asse library and click on the <em>Add Asset</em> button and choose the <em>Business Process</em> type.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-13-48-06-825.png" alt="image 2020 09 01 13 48 06 825">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>When the process designer opens, click on the properties pane to open it up.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-13-49-23-559.png" alt="image 2020 09 01 13 49 23 559">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Scroll down in the property panel on the right side of the screen, until you see the section <em>Process Data</em>.</p>
+                        </li>
+                        <li>
+                            <p>Expand the <em>Process Data</em> section and add the following <em>Process Variable</em> by clicking on the <em>+</em> sign.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-22-58-53-289.png" alt="image 2020 12 13 22 58 53 289">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Next let us define the steps one by one. First drag drop the start node from the left side pane.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-14-01-07-918.png" alt="image 2020 09 01 14 01 07 918">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>We will now create the task to invoke the REST service we created. For this open up the palette from the left.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-00-34-446.png" alt="image 2020 12 13 23 00 34 446">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Drag and drop the component on the canvas. We will now define the properties, for this click on the hidden property pane on the right.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-02-11-356.png" alt="image 2020 12 13 23 02 11 356">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>We will define the <code>Name</code> as`Lookup Customer Profile`. Click on the <code>Data Assignments</code> section to open it up. Click on the pencil icon to open up details.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-04-30-946.png" alt="image 2020 12 13 23 04 30 946">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>In the input section, We will define the Method as <code>GET</code> and the Url as <code><a href="http://localhost:8087/camel-rest/lookup/#{loanApplicant.customerId}" class="bare">http://localhost:8087/camel-rest/lookup/#{loanApplicant.customerId}</a></code>
+                                    We will leave all other input fields blank. We will map the output Result to the <code>customerClass</code> variable that we created earlier.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-06-50-226.png" alt="image 2020 12 13 23 06 50 226">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>We will now define an alternate path for PLATINUM customers. We will by pass the approval process. For this
+                                we will add a gateway that checks for the customer class and skip execution.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-15-12-155.png" alt="image 2020 12 13 23 15 12 155">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Now let us add a Script task so that we can mark the execution as complete. For this open up the palette
+                                    from the left and choose the task type as below.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-17-06-052.png" alt="image 2020 12 13 23 17 06 052">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>We will name this task <code>Auto Approve</code>, open up the Implementation/Execution section and add the Script value as below,</p>
+                            </div>
+                            <div class="listingblock">
+                                <div class="content">
+                                    <pre class="highlight"><code>kcontext.setVariable("loanApplicant.loanQualification",true);</code></pre>
+                                </div>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-18-46-708.png" alt="image 2020 12 13 23 18 46 708">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Finally we will define a end node to end this part of the flow.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-19-47-766.png" alt="image 2020 12 13 23 19 47 766">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Now we will connect all of these nodes using arrows. To connect any node click on the node and choose the context help displayed around the node to choose the arrow.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-21-16-905.png" alt="image 2020 12 13 23 21 16 905">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>The process should look like this.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-22-34-837.png" alt="image 2020 12 13 23 22 34 837">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Next we will define the <em>Loan Pre-Qualification</em> node. For this we will need to choose the <em>Business Rule</em> node. Click on the left side process palette on the Task(Rectangle) option and drag drop the node on to the canvas.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-07-54-495.png" alt="image 2020 12 13 23 07 54 495">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Now click on the node and edit the properties on the right side pane. We will give it a name and rule flow group as below.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-10-55-683.png" alt="image 2020 12 13 23 10 55 683">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Next we will define the Inputs/Ouputs for the Rule. For this scroll down to the <em>Data Assignments</em> section and click on the Assignments. We will map the <code>loanApplicant</code> as input and the <code>loanApplicant</code> as output.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-11-46-571.png" alt="image 2020 12 13 23 11 46 571">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Next connect the nodes as below.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-25-55-756.png" alt="image 2020 12 13 23 25 55 756">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Now click on the gateway, and define the default path as below.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-26-48-272.png" alt="image 2020 12 13 23 26 48 272">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>We will also define the path for the Auto approval. For this click on the arrow that connects the gateway to the Auto Approve task. On the Implementation/Execution section,
+                                    define the condition for filtering PLATINUM customers.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-29-06-949.png" alt="image 2020 12 13 23 29 06 949">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Next we need to define a gateway to filter only applicants with succesful Pre Qualification check. Click on the Rhombus from the process palette(on the left) and choose the Exclusive.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-30-10-141.png" alt="image 2020 12 13 23 30 10 141">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Next we will need to invoke the Loan Group Assignment. For this click on the <em>Task</em> node from the process palette(on the left) and choose the <em>Business Rule</em> node.</p>
+                            <div class="paragraph">
+                                <p>We will edit the name and add the Rule Flow group as below.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-32-16-127.png" alt="image 2020 12 13 23 32 16 127">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>We will add the Assignment as we did in the previous step with the following definition.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-32-46-992.png" alt="image 2020 12 13 23 32 46 992">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>We will also choose the Red circle from the process palette(on the left) and choose the <em>End</em> event. Now we will connect the arrows between the <em>Loan PreQualification</em>, gateway and the <em>Group Assignment</em> as below.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-33-32-695.png" alt="image 2020 12 13 23 33 32 695">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>We will also need to define the logic for the gateway, for this click on the arrow to the <em>Group Assignment</em> and expand the <em>Implementation/Execution</em> section. Here we will define the logic as below.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-34-23-537.png" alt="image 2020 12 13 23 34 23 537">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>We will define the default path for the gateway as End, as below.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-35-58-796.png" alt="image 2020 12 13 23 35 58 796">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Last we will define a human task for the Loan Manager approval. For this click on the <em>Task</em> node from the process palette(on the left) and click on the <em>User</em> task. Drag drop the node on to the canvas.</p>
+                            <div class="paragraph">
+                                <p>We will edit the name and add the <em>Groups</em>. Add the value as</p>
+                            </div>
+                            <div class="listingblock">
+                                <div class="content">
+                                    <pre class="highlight"><code>#{loanApplicant.loanGroupAssignment}</code></pre>
+                                </div>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-38-22-425.png" alt="image 2020 12 13 23 38 22 425">
+                                </div>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-36-47-225.png" alt="image 2020 12 13 23 36 47 225">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Next scroll down to the <em>Assignments</em> section and add the following assignment.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-38-58-441.png" alt="image 2020 12 13 23 38 58 441">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Finally connect the <code>Loan Approval</code> task with the end node and connect the arrows.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-39-36-641.png" alt="image 2020 12 13 23 39 36 641">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Finally click on <em>Validate</em> and it should be succesful.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="_creating_the_user_forms">4.6. Creating the User Forms</h3>
+                <div class="paragraph">
+                    <p>Next we will create User Forms to interact with the human tasks. We will set up one form to start the process and one for the Loan Manager Approval.</p>
+                </div>
+                <div class="olist arabic">
+                    <ol class="arabic">
+                        <li>
+                            <p>For this on the Process editor click on the following option and choose <code>Generate all Forms</code>.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-40-13-100.png" alt="image 2020 12 13 23 40 13 100">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>This will create a form with all possible values, we will now edit these forms to make sure we have the right fields.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Go Back to the Asset Library view and filter by Forms. You should now see 3 forms generated.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-16-56-47-564.png" alt="image 2020 09 01 16 56 47 564">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Now open up the Form com_myspace_loan_approval_LoanApplicant</p>
+                            <div class="paragraph">
+                                <p>You can see the various fields possible for an <code>LoanApplicant</code>. Let us remove the field <code>Loan Pre Qualification</code>, <code>Loan Qualification</code> and <code>LoanGroupAssignment</code> by clicking on the three dots on the right side of the field. You can also rearrange the fields as you see fit.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-43-32-596.png" alt="image 2020 12 13 23 43 32 596">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Save the changes.</p>
+                            </div>
+                            <div class="paragraph">
+                                <p>Finally let us open up the User Task Form - <code>Task-taskform</code> and make sure the fields look up. Remove the field name <code>CustomerClass</code>, this will come from the service lookup.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Now we are ready to build and deploy the changes. Go back to the asset library and click on <em>Deploy</em>. (The Deploy action Builds &amp; Deploys the changes).</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="_process_management_and_tracking">4.7. Process Management and Tracking</h3>
+                <div class="olist arabic">
+                    <ol class="arabic">
+                        <li>
+                            <p>After the build is succesful, click top menu option and choose <em>Process Definition</em>.</p>
+                        </li>
+                        <li>
+                            <p>We can see the Process Defintion listed, now click on the three dots on the right side of the Process <code>loan-approval-wkflow</code>. Click on <em>Start</em></p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-01-17-01-44-193.png" alt="image 2020 09 01 17 01 44 193">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>This should open up the Process Start Form.
+                                Enter the values for the form and proceed.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-46-48-755.png" alt="image 2020 12 13 23 46 48 755">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>We can now see the Process Instance View load up automatically.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-47-10-006.png" alt="image 2020 12 13 23 47 10 006">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Inspect the Process Summary</p>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Click on the Diagram Tab on the Process Instance View.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-47-28-660.png" alt="image 2020 12 13 23 47 28 660">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>You can see that the completed steps show up in grey color and the current task in progress shows up with a Red outline.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Let us now quickly explore the admin options on the <code>Process Instances</code> tab.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-02-07-04-18-323.png" alt="image 2020 09 02 07 04 18 323">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>To start with, you can see that there is a <code>Filter</code> section on the left. This section lets us manage the filter criteria for this dashboard. The default filter options based on status, SLAs and Process definition are all mentioned here. This perspective also allows you to create a <code>New Process Instance</code>. The table shows the content filtered based on the criteria specified.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Let us now explore some complex monitoring options. Assuming that, you will need to track SLAs on the process and alert when they breach. For this go back the designer and open up the Process for authoring again.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-48-26-058.png" alt="image 2020 12 13 23 48 26 058">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>On the authoring perspective, as shown above, let us set an SLA. Save, build and deploy the changes.</p>
+                            </div>
+                            <div class="paragraph">
+                                <p>Let us create a new process instance as we did earlier, with the same input data.</p>
+                            </div>
+                            <div class="paragraph">
+                                <p>Now go back to the <code>Manage</code> perspective and navigate back to the <code>Process Instance</code> section. Since, we set the SLA as 2s it will almost immediately go in to the violated state. Let us verify that here. From the left side filter section, select the SLA violation.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-02-07-15-30-551.png" alt="image 2020 09 02 07 15 30 551">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>You should see that the SLA violation related results loads up on the right hand side.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <p>The <code>Manage</code> section also provides for a way to define custom queries on the process data. The following diagram shows how you can setup a custom filter.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-13-23-50-32-798.png" alt="image 2020 12 13 23 50 32 798">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Now let us go back process which we last created, The task is assigned to a loan agent group dynamically at runtime based on the rules we configured. Let us see which group this assignment has been done for. For this click on the <code>Tasks</code> option from the <code>Manager</code> menu option.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-02-06-58-57-687.png" alt="image 2020 09 02 06 58 57 687">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>You will now see the task management perspective.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-02-06-59-38-570.png" alt="image 2020 09 02 06 59 38 570">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Note: if you cant see the tasks on the Task Management Perspective, it is likely that the user logged in
+                                    does not have the right role. For this open up the file $JBOSS_HOME/standalone/configuration/application-roles.properties and
+                                    add <code>Administrators</code> as a role to the logged in user.</p>
+                            </div>
+                            <div class="paragraph">
+                                <p>Open up the task, and navigate to the <code>Assignments</code> tab.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-02-07-01-03-446.png" alt="image 2020 09 02 07 01 03 446">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Let us now try to change the rule logic which governs this assignment. Go back in to the <code>Design</code> perspective and open up the guided decision table <code>AgentGroupAssignment</code>.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-14-00-09-24-804.png" alt="image 2020 12 14 00 09 24 804">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Make some changes to the second row, so that we assign RESIDENT cases also to the seniorUserAgent. Now save the business rule, build and deploy the changes.</p>
+                            </div>
+                            <div class="paragraph">
+                                <p>We will now create another process instance using the very same input test data.</p>
+                            </div>
+                            <div class="paragraph">
+                                <p>Now go in to the <code>Manage</code> perspective and open up the <code>Tasks</code> section. If we inspect the last task created, we can see it has now been assigned to <code>seniorAgent</code> instead of <code>nonResidentGroup</code>.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-02-07-25-06-981.png" alt="image 2020 09 02 07 25 06 981">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Next let us assume that the group of users are overloaded with work, so we want to make sure the tasks are not in pending state for a long time. For this we want to put some controls in such that, if a tasks is not started by a group until <code>x</code> mins/hours we want to ressignment to somebody. Let us now move back to the <code>Design</code> Perspective and open up the business process.</p>
+                            <div class="paragraph">
+                                <p>On the Process, click on the <code>Loan Approval</code> task. On the right side pane, expand the <code>Implementation/Execution</code> section. Here click on the <code>Reassignments</code> section.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image-2020-12-14-00-10-57-991.png" alt="image 2020 12 14 00 10 57 991">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Click on the <code>Add</code> button and provide the reassingment strategy as below.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-02-08-11-17-607.png" alt="image 2020 09 02 08 11 17 607">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Click on <code>Ok</code>, save changes, build and deploy the project. Now navigate back to the <code>Manage</code> perspective and create a process one more time with the same test data.</p>
+                            </div>
+                            <div class="paragraph">
+                                <p>The process should be created, let us wait a minute and open up the <code>Task</code> section on the management perspective.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-02-08-12-23-258.png" alt="image 2020 09 02 08 12 23 258">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>You can see that the task has been reassigned. Open up the <code>Logs</code> tab to see how the reassignment happened.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-02-08-13-09-454.png" alt="image 2020 09 02 08 13 09 454">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Next let us look at how an admin can manually delegate tasks. Go back to the <code>Assignment</code> section. Now enter the <code>User</code> to delegate as <code>adminUser</code> and click on delegate.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-02-09-42-27-479.png" alt="image 2020 09 02 09 42 27 479">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>You can see the task has been reassigned to <code>adminUser</code> now. Also check the <code>Logs</code> tab to see the audit log of how the reassignment happened.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Next let us go back to the <code>Task</code> dashboard by following the breadcrumb.</p>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-02-09-44-01-553.png" alt="image 2020 09 02 09 44 01 553">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>You can see that because of the assignment, the <code>Actual Owner</code> for the task has been changed to <code>adminUser</code> and the task is now in the <code>Reserved</code> state.</p>
+                            </div>
+                            <div class="paragraph">
+                                <p>As you can see, the dashboard provides bulk operations on the tasks. This allows us to claim, suspend, start,release tasks.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-02-08-17-24-629.png" alt="image 2020 09 02 08 17 24 629">
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="_task_inbox">4.8. Task Inbox</h3>
+                <div class="olist arabic">
+                    <ol class="arabic">
+                        <li>
+                            <p>Task Inbox shows up assigned tasks for the user. This perspective allows the user to work on a task. Lets now login as <code>adminUser</code>. Since we reassigned a task to that user, we should be able to see the task waiting on the inbox.</p>
+                            <div class="paragraph">
+                                <p>Click on the top section and choose the <code>Task Inbox</code>.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-02-09-45-45-917.png" alt="image 2020 09 02 09 45 45 917">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>There should be a task waiting, open it up.
+                                    As you can see the task form shows up.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-02-09-47-26-921.png" alt="image 2020 09 02 09 47 26 921">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>You can see that the details section allows for <code>Priority</code>  to be changed. This can be used in a reassignment strategy if need be.</p>
+                            </div>
+                            <div class="paragraph">
+                                <p>Let us now switch back to the <code>Work</code> tab, and click on the <code>Start</code> button.</p>
+                            </div>
+                            <div class="imageblock">
+                                <div class="content">
+                                    <img src="image/image-2020-09-02-10-18-03-038.png" alt="image 2020 09 02 10 18 03 038">
+                                </div>
+                            </div>
+                            <div class="paragraph">
+                                <p>Now you can see additional options to <code>Complete</code>. Click on <code>Complete</code>. The task should now get completed.</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div id="footer">
-<div id="footer-text">
-Last updated 2020-12-14 00:10:59 -0500
-</div>
+    <div id="footer-text">
+        Last updated 2020-12-14 00:10:59 -0500
+    </div>
 </div>
 </body>
 </html>
